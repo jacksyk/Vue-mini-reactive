@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script>
+            let data = {
+                msg: "hello world",
+            };
+            let vm = {};
+            Object.defineProperty(vm, "msg", {
+                get() {
+                    return data.msg;
+                },
+                set(newValue) {
+                    if (data.msg === newValue) return;
+                    data.msg = newValue;
+                    // 视图更新
+                    document.querySelector("#app").textContent = data.msg;
+                },
+            });
+            vm.msg = "hello world1";
+        </script>
+    </body>
+</html>

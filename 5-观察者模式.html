@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <!-- 
+            1.观察模式
+            2.没有事件中心
+            3.只有发布者和订阅者
+            4.发布者必须知道订阅者的存在
+            5.订阅者有相应的Update函数
+         -->
+
+        <script>
+            class Dep {
+                constructor() {
+                    this.subs = [];
+                }
+                addSub(sub) {
+                    this.subs.push(sub);
+                }
+                notify() {
+                    this.subs &&
+                        this.subs.forEach((sub) => {
+                            sub.update();
+                        });
+                }
+            }
+
+            class Watcher {
+                update() {
+                    console.log("我爱你刘家庆");
+                }
+            }
+
+            let watcher1 = new Watcher();
+            let watcher2 = new Watcher();
+            let dep = new Dep();
+            dep.addSub(watcher1);
+            dep.addSub(watcher2);
+            dep.notify();
+        </script>
+    </body>
+</html>

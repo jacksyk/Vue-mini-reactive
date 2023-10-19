@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app">
+            <h1>插值表达式</h1>
+            <h3>{{msg}}</h3>
+            <h3>{{count}}</h3>
+        </div>
+        <script src="./Watcher.js"></script>
+        <script src="./Dep.js"></script>
+        <script src="./compiler.js"></script>
+        <script src="./observer.js"></script>
+        <script src="./vue.js"></script>
+        <script>
+            let vm = new Vue({
+                el: "#app",
+                data: {
+                    msg: "hello world",
+                    count: 0,
+                },
+            });
+            console.log(vm.msg);
+            // vm.msg = {
+            //     a: 1,
+            //     b: 2,
+            //     c: 3,
+            // };
+        </script>
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="app"></div>
+
+        <script>
+            let data = {
+                msg: "hello world",
+                name: "jack",
+            };
+            let vm = {};
+            vm = new Proxy(data, {
+                get(target, key) {
+                    return target[key];
+                },
+                set(target, key, newVal) {
+                    target[key] = newVal;
+                    document.querySelector("#app").textContent = newVal;
+                },
+            });
+            vm.msg = "hello world1";
+            vm.name = "oooo";
+        </script>
+    </body>
+</html>
