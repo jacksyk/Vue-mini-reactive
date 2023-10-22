@@ -6,6 +6,7 @@ class Watcher {
      * @param {*} cb 触发视图更新的回调函数
      */
     constructor(vm, key, cb) {
+        console.log("Watcher构造函数");
         this.vm = vm;
         this.key = key;
         this.cb = cb;

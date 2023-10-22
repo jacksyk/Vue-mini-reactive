@@ -26,7 +26,7 @@ class Observer {
             enumerable: true,
             configurable: true,
             get() {
-                // console.log("访问了Observer中的get方法");
+                console.log("访问了Observer中的get方法");
                 Dep.target && dep.addSub(Dep.target); // TODO: 这里的Dep.target就是Watcher类的实例
                 return value;
             },

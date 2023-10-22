@@ -31,7 +31,10 @@ class Compiler {
         if (reg.test(node.textContent)) {
             // console.log(RegExp.$1);
             let key = RegExp.$1.trim();
+            debugger;
+            // 在这里进行了Vue实例的访问。
             node.textContent = node.textContent.replace(reg, this.vm[key]); // TODO:这里通过vm来获取
+            debugger;
             new Watcher(this.vm, key, (newValue) => {
                 node.textContent = newValue;
             });
